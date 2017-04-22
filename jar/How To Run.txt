@@ -1,0 +1,2 @@
+// <cmd> <specifier> <jar-file> <main-class>
+java -cp Game.jar Game 

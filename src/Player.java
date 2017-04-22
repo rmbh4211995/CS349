@@ -59,8 +59,8 @@ public class Player extends GameObject{
 	}
 
 	public Image getPlayerImg(){
-		ImageIcon player1 = new ImageIcon("C:/Users/Jochs01/workspace/BoxingGame/src/idle animation 1.png");
-		ImageIcon player2 = new ImageIcon("C:/Users/Jochs01/workspace/BoxingGame/src/idle_animation_1_gold.png");
+		ImageIcon player1 = new ImageIcon(this.getClass().getResource("idle animation 1.png"));
+		ImageIcon player2 = new ImageIcon(this.getClass().getResource("idle_animation_1_gold.png"));
 		try{
 			if(id == ID.Player){
 				return player1.getImage();

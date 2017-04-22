@@ -6,7 +6,7 @@ import java.io.File;
 
 import javax.swing.ImageIcon;
 
-public class Game extends Canvas implements Runnable{
+public class Game extends Canvas implements Runnable {
 	
 	private static final long serialVersionUID = -1442798787354930462L;
 	
@@ -24,9 +24,10 @@ public class Game extends Canvas implements Runnable{
 	private PauseMenu pauseMenu;
 	private MusicPlayer music;
 	
-	private ImageIcon backGD = new ImageIcon("C:/Users/Jochs01/workspace/BoxingGame/src/JMvUBackground.png");
-	private ImageIcon ringBack = new ImageIcon("C:/Users/Jochs01/workspace/BoxingGame/src/ring.png");
-	private ImageIcon ringFront = new ImageIcon("C:/Users/Jochs01/workspace/BoxingGame/src/ring_front.png");
+	//private ImageIcon backGD = new ImageIcon("res/JMvUBackground.png");
+	private ImageIcon backGD = new ImageIcon(this.getClass().getResource("JMvUBackground.png"));
+	private ImageIcon ringBack = new ImageIcon(this.getClass().getResource("ring.png"));
+	private ImageIcon ringFront = new ImageIcon(this.getClass().getResource("ring_front.png"));
 	
 	public static State state = State.Menu;
 	

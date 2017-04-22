@@ -178,8 +178,8 @@ public class Menu extends MouseAdapter{
 			
 			//Credits Message Lines
 			g.setFont(new Font("Fipps", Font.PLAIN, 10));
-			g.drawString("Authors: John Ochs, Ryan Hirst, Kaelan Holic", 60, Game.height / 2);
-			g.drawString("PProject Help Courtesy of: Prof. Berstein", 60, Game.height / 2 + 20);
+			g.drawString("Authors: John Ochs, RyanMichael Hirst, Kaelan Holic", 60, Game.height / 2);
+			g.drawString("Project Help Courtesy of: Prof. Berstein", 60, Game.height / 2 + 20);
 			
 			//Back Button
 			g.setColor(Color.darkGray);

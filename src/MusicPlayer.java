@@ -1,4 +1,5 @@
 import java.io.File;
+import java.net.URL;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -6,14 +7,15 @@ import javax.sound.sampled.Clip;
 
 public class MusicPlayer {
       
-    private AudioInputStream   stream;   
-    private Clip          clip;         
+    private AudioInputStream	stream;   
+    private Clip				clip;         
 	
 	public MusicPlayer(){
     
 	    try {
-	        File file = new File("C:/Users/Jochs01/workspace/BoxingGame/src/Clubs.wav");
-	        stream = AudioSystem.getAudioInputStream(file);
+	        //File file = new File("Clubs.wav");
+	        //stream = AudioSystem.getAudioInputStream(file);
+	    	stream = AudioSystem.getAudioInputStream(this.getClass().getResource("Clubs.wav"));
 	        clip = AudioSystem.getClip();
 	        clip.open(stream);
 	    }
@@ -25,5 +27,4 @@ public class MusicPlayer {
 	public void play(){
         clip.loop(Clip.LOOP_CONTINUOUSLY);
 	}
-	
 }
