@@ -12,6 +12,7 @@ public class Player extends GameObject{
 	protected static boolean player1Attacking = false;
 	protected static boolean player2Attacking = false;
 	private int basicDamage = 5;
+	private MusicPlayer player = new MusicPlayer();
 	
 	public Player(int x, int y, ID id, ObjectHandler handler) {
 		super(x, y, id);
@@ -86,18 +87,21 @@ public class Player extends GameObject{
 			else{
 				if(getAttackBounds().intersects(temp.getAttackBounds()) && id != temp.getID()){
 					if(!player1Attacking && player2Attacking){
-						HUD.updateHealth(ID.Player, basicDamage);
+						HUD.updateHealth(ID.Player, basicDamage, this.handler);
+						player.playHit();
 						Player.player2Attacking = false;
 						//System.out.println("Player 2 stopped attacking.");
 					}
 					else if(player1Attacking && !player2Attacking){
-						HUD.updateHealth(ID.Player2, basicDamage);
+	          player.playHit();
+						HUD.updateHealth(ID.Player2, basicDamage, this.handler);
 						Player.player1Attacking = false;
 						//System.out.println("Player 1 stopped attacking.");
 					}
 					else if(player1Attacking && player2Attacking){
-						HUD.updateHealth(ID.Player, basicDamage);
-						HUD.updateHealth(ID.Player2, basicDamage);
+					  player.playHit();
+						HUD.updateHealth(ID.Player, basicDamage, this.handler);
+						HUD.updateHealth(ID.Player2, basicDamage, this.handler);
 						Player.player1Attacking = false;
 						Player.player2Attacking = false;
 					}

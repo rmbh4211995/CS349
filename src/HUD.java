@@ -17,6 +17,7 @@ public class HUD {
 	
 	private Color jmuGold = new Color(194, 161, 77);
 	
+	
 	public HUD(ObjectHandler handler){
 		this.handler = handler;
 	}
@@ -59,13 +60,19 @@ public class HUD {
 		g.drawString("vs", 230, 35);
 	}
 	
-	public static void updateHealth(ID id, int damage){
-		if(id == ID.Player){
+	public static void updateHealth(ID id, int damage, ObjectHandler h){
+		ObjectHandler tempHandle = h;
+		MusicPlayer player = new MusicPlayer();
+	  if(id == ID.Player){
 			p1Health -= damage;
 			//System.out.println("Player1 took damage.");
 			if(p1Health == 0){
 				//System.out.println("Player 1 has died.");
+			  player.playWin();
 				p2Score += 1;
+				h.remAll();
+				h.addObject(new Player(Game.width / 6, Game.height / 6 + 130, ID.Player, h));
+        h.addObject(new Player(Game.width / 2, Game.height / 6 + 130, ID.Player2, h));
 				p1Health = 100;
 				p2Health = 100;
 			}
@@ -75,7 +82,11 @@ public class HUD {
 			//System.out.println("Player2 took damage.");
 			if(p2Health == 0){
 				//System.out.println("Player 2 has died.");
+			  player.playWin();
 				p1Score += 1;
+				h.remAll();
+        h.addObject(new Player(Game.width / 6, Game.height / 6 + 130, ID.Player, h));
+        h.addObject(new Player(Game.width / 2, Game.height / 6 + 130, ID.Player2, h));
 				p1Health = 100;
 				p2Health = 100;
 			}
