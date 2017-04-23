@@ -28,4 +28,9 @@ public class ObjectHandler {
 	public void remObject(GameObject obj){
 		this.objList.remove(obj);
 	}
+	
+	public void remAll()
+	{
+	  this.objList.clear();
+	}
 }

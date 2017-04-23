@@ -31,7 +31,8 @@ public class PauseMenu extends MouseAdapter {
 					Game.state = State.Game;
 				}
 				else if(Menu.isOver(mouseX, mouseY, Game.width / 2 - 60, Game.height / 2 - 30, 120, 40)){ //Menu Button
-					Game.state = State.Menu;
+				  handler.remAll();
+				  Game.state = State.Menu;
 				}
 				else if(Menu.isOver(mouseX, mouseY, Game.width / 2 - 60, Game.height / 2 + 30, 120, 40)){ //Quit Button
 					showYesOrNoMes = true;
