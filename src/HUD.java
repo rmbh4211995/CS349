@@ -16,6 +16,7 @@ public class HUD {
 	private int level = 1;
 	
 	private Color jmuGold = new Color(194, 161, 77);
+	private static MusicPlayer player = new MusicPlayer();
 	
 	
 	public HUD(ObjectHandler handler){
@@ -62,7 +63,6 @@ public class HUD {
 	
 	public static void updateHealth(ID id, int damage, ObjectHandler h){
 		ObjectHandler tempHandle = h;
-		MusicPlayer player = new MusicPlayer();
 	  if(id == ID.Player){
 			p1Health -= damage;
 			//System.out.println("Player1 took damage.");
