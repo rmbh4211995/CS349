@@ -8,60 +8,63 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
 
 public class MusicPlayer {
-      
-    private AudioInputStream	stream, stream2;
-    static AudioInputStream     stream3, stream4;
-    private AudioFormat         format;
-    private DataLine.Info       info;
-    private Clip				clip, clip2; 
-    static Clip                 clip3, clip4;         
-	
-	public MusicPlayer(){
-    
-	    try {
-	        
-	    	stream = AudioSystem.getAudioInputStream(this.getClass().getResource("Clubs.wav"));
-	    	format = stream.getFormat();
-	    	info = new DataLine.Info(Clip.class, format);
-	        clip = (Clip) AudioSystem.getLine(info);
-	        clip.open(stream);
-	    }
-	    catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	}
-	
-	public void play(){
+
+    private AudioInputStream stream, stream2;
+    private AudioFormat format, format2;
+    private DataLine.Info info, info2;
+    private Clip clip, clip2;
+    public MusicPlayer() {
+
+        try {
+
+            stream = AudioSystem.getAudioInputStream(
+                    this.getClass().getResource("Clubs.wav"));
+            format = stream.getFormat();
+            info = new DataLine.Info(Clip.class, format);
+            clip = (Clip) AudioSystem.getLine(info);
+            clip.open(stream);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void play() {
         clip.loop(Clip.LOOP_CONTINUOUSLY);
-	}
-	
-	public void playHit()
-	{
-	  try {
-      stream2 = AudioSystem.getAudioInputStream(this.getClass().getResource("jab.wav"));
-      clip2 = AudioSystem.getClip();
-      clip2.open(stream2);
-  }
-  catch (Exception e) {
-      e.printStackTrace();
-  }
-	  clip2.loop(0);
-	}
-	public void playWin()
-  {
-    try {
-      stream3 = AudioSystem.getAudioInputStream(this.getClass().getResource("grunt.wav"));
-      clip3 = AudioSystem.getClip();
-      clip3.open(stream3);
-      stream4 = AudioSystem.getAudioInputStream(this.getClass().getResource("applause.wav"));
-      clip4 = AudioSystem.getClip();
-      clip4.open(stream4);
-  }
-  catch (Exception e) {
-      e.printStackTrace();
-  }
-    clip3.loop(0);
-    clip4.loop(0);
-  }
-	
+    }
+
+    public void playHit() {
+        try {
+            stream = AudioSystem.getAudioInputStream(
+                    this.getClass().getResource("jab.wav"));
+            format = stream.getFormat();
+            info = new DataLine.Info(Clip.class, format);
+            clip = (Clip) AudioSystem.getLine(info);
+            clip.open(stream);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        clip.loop(0);
+    }
+
+    public void playWin() {
+        try {
+            stream = AudioSystem.getAudioInputStream(
+                    this.getClass().getResource("grunt.wav"));
+            format = stream.getFormat();
+            info = new DataLine.Info(Clip.class, format);
+            clip = (Clip) AudioSystem.getLine(info);
+            clip.open(stream);
+            stream2 = AudioSystem.getAudioInputStream(
+                    this.getClass().getResource("applause.wav"));
+            format2 = stream2.getFormat();
+            info2 = new DataLine.Info(Clip.class, format2);
+            clip2 = (Clip) AudioSystem.getLine(info2);
+            clip2.open(stream2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        clip.loop(0);
+        clip2.loop(0);
+    }
+
 }
