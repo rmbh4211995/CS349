@@ -1,24 +1,29 @@
 import java.io.File;
 import java.net.URL;
 
+import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
 
 public class MusicPlayer {
       
     private AudioInputStream	stream, stream2;
-    static AudioInputStream stream3, stream4;   
+    static AudioInputStream     stream3, stream4;
+    private AudioFormat         format;
+    private DataLine.Info       info;
     private Clip				clip, clip2; 
-    static Clip clip3, clip4;         
+    static Clip                 clip3, clip4;         
 	
 	public MusicPlayer(){
     
 	    try {
-	        //File file = new File("Clubs.wav");
-	        //stream = AudioSystem.getAudioInputStream(file);
+	        
 	    	stream = AudioSystem.getAudioInputStream(this.getClass().getResource("Clubs.wav"));
-	        clip = AudioSystem.getClip();
+	    	format = stream.getFormat();
+	    	info = new DataLine.Info(Clip.class, format);
+	        clip = (Clip) AudioSystem.getLine(info);
 	        clip.open(stream);
 	    }
 	    catch (Exception e) {
