@@ -24,7 +24,6 @@ public class Game extends Canvas implements Runnable {
 	private PauseMenu pauseMenu;
 	private MusicPlayer music;
 	
-	//private ImageIcon backGD = new ImageIcon("res/JMvUBackground.png");
 	private ImageIcon backGD = new ImageIcon(this.getClass().getResource("JMvUBackground.png"));
 	private ImageIcon ringBack = new ImageIcon(this.getClass().getResource("ring.png"));
 	private ImageIcon ringFront = new ImageIcon(this.getClass().getResource("ring_front.png"));
@@ -43,9 +42,7 @@ public class Game extends Canvas implements Runnable {
 		this.addMouseMotionListener(pauseMenu);
 		
 		new Display(width, height, "JMvU", this);	
-		
 		hud = new HUD(handler);
-		music.play();
 	}
 
 	public static int bound(int var, int min, int max){
@@ -114,13 +111,15 @@ public class Game extends Canvas implements Runnable {
 		g.drawImage(backGD.getImage(), 0, 0, null);
 		
 		if(state == State.Game){
+		    music.play();
 			hud.render(g);
 			g.drawImage(ringBack.getImage(), Game.width / 2 - ringBack.getIconWidth() / 2, Game.height / 2 - 75, null);
 			handler.render(g);
 			g.drawImage(ringFront.getImage(), Game.width / 2 - ringFront.getIconWidth() / 2 - 10, Game.height / 2 - 87, null);
 
 		}
-		else if(state == State.Menu || state == State.Credits || state == State.Help){		
+		else if(state == State.Menu || state == State.Credits || state == State.Help){
+		    music.stop();
 			menu.render(g);
 		}
 		else if(state == State.Pause){
