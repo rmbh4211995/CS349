@@ -41,7 +41,8 @@ public class Game extends Canvas implements Runnable {
 		this.addMouseListener(pauseMenu);
 		this.addMouseMotionListener(pauseMenu);
 		
-		new Display(width, height, "JMvU", this);	
+		new Display(width, height, "JMvU", this);   
+
 		hud = new HUD(handler);
 	}
 

@@ -1,11 +1,14 @@
 /Clubs.wav
 /Display.class
 /Game.class
+/GameApplet.class
+/GameApplication.class
 /GameObject.class
 /HUD.class
 /ID.class
 /JMvUBackground.png
 /JMvULogo.png
+/Kaelan.wav
 /KeyInput.class
 /Menu.class
 /MusicPlayer.class
@@ -18,6 +21,6 @@
 /idle animation 1.png
 /idle_animation_1_gold.png
 /jab.wav
+/multimedia.jar
 /ring.png
 /ring_front.png
-/Kaelan.wav
